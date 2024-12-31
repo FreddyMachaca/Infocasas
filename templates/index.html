@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicción de Precio de Propiedad</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="../static/logo.webp" alt="Logo">
+            InfoCasas
+        </div>
+        <div class="navbar-links">
+            <a href="#">Inicio</a>
+            <a href="#">Predicción</a>
+            <a href="#">Sobre Nosotros</a>
+            <a href="#">Contacto</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Predicción de Precio de Propiedad</h1>
+            <p>Ingresa los detalles de la propiedad para predecir su precio.</p>
+        </header>
+
+        <form action="/predecir" method="POST" class="formulario">
+            <div class="form-group">
+                <label for="superficie">Superficie (m²):</label>
+                <input type="text" id="superficie" name="superficie" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dormitorios">Dormitorios:</label>
+                <input type="text" id="dormitorios" name="dormitorios" required>
+            </div>
+
+            <div class="form-group">
+                <label for="banos">Baños:</label>
+                <input type="text" id="banos" name="banos" required>
+            </div>
+
+            <div class="form-group">
+                <label for="garaje">Garaje (Si/No):</label>
+                <input type="text" id="garaje" name="garaje" required>
+            </div>
+
+            <div class="form-group">
+                <label for="escuelas">Cercanía a Escuelas (km):</label>
+                <input type="text" id="escuelas" name="escuelas" required>
+            </div>
+
+            <div class="form-group">
+                <label for="hospitales">Cercanía a Hospitales (km):</label>
+                <input type="text" id="hospitales" name="hospitales" required>
+            </div>
+
+            <div class="form-group">
+                <label for="teleferico">Cercanía a Teleférico (km):</label>
+                <input type="text" id="teleferico" name="teleferico" required>
+            </div>
+
+            <div class="form-group">
+                <label for="edad">Edad de la Propiedad (años):</label>
+                <input type="text" id="edad" name="edad" required>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Predecir Precio</button>
+            </div>
+        </form>
+
+        {% if prediccion %}
+        <div class="resultado">
+            <h2>{{ prediccion }}</h2>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
